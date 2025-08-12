@@ -1,0 +1,26 @@
+import tkinter as tk
+from pynput import keyboard
+
+# Create the Tkinter window
+root = tk.Tk()
+root.title("Keystroke Viewer")
+root.geometry("500x300")
+
+text_area = tk.Text(root, wrap="word", font=("Arial", 12))
+text_area.pack(expand=True, fill="both")
+
+# Function to update the text area
+def on_press(key):
+    try:
+        k = key.char  # normal keys
+    except AttributeError:
+        k = str(key)  # special keys like space, enter
+
+    text_area.insert(tk.END, k + " ")
+    text_area.see(tk.END)  # auto scroll
+
+# Start key listener in the background
+listener = keyboard.Listener(on_press=on_press)
+listener.start()
+
+root.mainloop()
