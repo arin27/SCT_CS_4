@@ -1,70 +1,99 @@
-# SCT_CS_4
+# Keystroke Viewer
 
-# Keystroke Viewer (GUI Keylogger)
+A Python-based GUI application that visualizes keyboard input in real time using `pynput` and `tkinter`.
 
-This project is a GUI-based keystroke logger built with Python using pynput for capturing keyboard input and tkinter for displaying the keystrokes in real-time.
-Unlike console-based keyloggers, this one does not print anything to the terminal — all keystrokes are displayed in a Tkinter text area.
+Unlike terminal-based demonstrations, this project displays captured keystrokes directly inside a graphical interface, making keyboard event monitoring easier to visualize and understand.
 
 ---
 
 # Features
 
-1) Real-time keystroke display in a GUI window
-2) System-wide key capture (works outside the app window)
-3) Automatically scrolls to the latest keystroke
-4) Works for both normal keys and special keys (e.g., Space, Enter)
+- Real-time keystroke display in a GUI window
+- System-wide keyboard input capture
+- Automatic scrolling to the latest keystroke
+- Supports both normal and special keys
+- Simple and beginner-friendly Tkinter interface
+
+---
+
+# Technologies Used
+
+- Python 3
+- `pynput`
+- `tkinter`
 
 ---
 
 # Requirements
 
-Make sure you have Python 3 installed, then install the dependencies:
+Install the required dependency:
 
 pip install pynput
 
-tkinter comes pre-installed with Python on most systems.
+`tkinter` comes pre-installed with Python on most systems.
 
 ---
 
 # How to Run
 
-Save the script as keystroke_viewer.py.
-Open a terminal and run:
+Save the script as:
+
+keystroke_viewer.py
+
+Run the program:
+
 python keystroke_viewer.py
-A window will appear showing every key you press in real time.
+
+A GUI window will appear and display keyboard input in real time.
 
 ---
 
 # Code Overview
 
-1) pynput.keyboard.Listener → Listens for system-wide keystrokes
-2) tkinter → Displays keys in a resizable GUI text area
-3) on_press function → Captures and inserts each key into the text box
+### `pynput.keyboard.Listener`
+Captures keyboard input across the system.
+
+### `tkinter`
+Creates the graphical interface used to display keystrokes.
+
+### `on_press()`
+Handles key press events and inserts them into the text area.
 
 ---
 
-# Notes
+# Educational Relevance
 
-This is for educational purposes only — do not use it for malicious activity.
-Works on Windows, macOS, and Linux (may require admin privileges on some systems).
+This project demonstrates:
+- keyboard event listeners
+- system-wide input monitoring
+- GUI interaction with Python
+- real-time event handling
+
+It can also help learners understand how monitoring software and certain malware techniques function conceptually in cybersecurity environments.
+
+---
+
+# Disclaimer
+
+This project was created strictly for educational and ethical purposes only.
+
+Do not use it maliciously or without proper authorization.
 
 ---
 
 # Example
 
-When you type:
+Typing:
 
 Hello World
-The GUI will show:
 
-H e l l o   W o r l d
+Will display:
 
----
+H e l l o [Space] W o r l d
+
+inside the GUI window in real time.
 
 # Image Description
 
-<img width="1920" height="1080" alt="Screenshot (56)" src="https://github.com/user-attachments/assets/aaa1f999-8ed6-4ef0-85a1-9d77cd092cdb" />
+<img width="1919" height="1007" alt="image" src="https://github.com/user-attachments/assets/df4d7bc6-7d35-476c-b6fd-d2fb8f704d9e" />
 
----
-
-Made with love and curiosity. Harini.
