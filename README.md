@@ -95,6 +95,6 @@ inside the GUI window in real time.
 
 # Image Description
 
-<img width="1919" height="1007" alt="image" src="https://github.com/user-attachments/assets/64eee95e-ba7f-4de2-8040-49a3dd842537" />
+<img width="1919" height="1007" alt="image" src="https://github.com/user-attachments/assets/633ad1e8-40ff-447f-847a-683806c65401" />
 
 
