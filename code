@@ -1,0 +1,53 @@
+import tkinter as tk
+from pynput import keyboard
+
+# Create the Tkinter window
+root = tk.Tk()
+root.title("Keystroke Viewer")
+root.geometry("500x300")
+
+text_area = tk.Text(
+    root,
+    wrap="word",
+    font=("Consolas", 12),
+    bg="black",
+    fg="lime",
+    insertbackground="white"
+)
+text_area.pack(expand=True, fill="both")
+
+# Special key display formatting
+SPECIAL_KEYS = {
+    keyboard.Key.space: "[SPACE]",
+    keyboard.Key.enter: "[ENTER]\n",
+    keyboard.Key.backspace: "[BACKSPACE]",
+    keyboard.Key.tab: "[TAB]",
+    keyboard.Key.shift: "[SHIFT]",
+    keyboard.Key.shift_r: "[SHIFT]",
+    keyboard.Key.shift_l: "[SHIFT]",
+    keyboard.Key.cmd: "[WINDOWS]",
+}
+
+# Function to update the text area
+def on_press(key):
+    try:
+        k = key.char  # Normal keys
+    except AttributeError:
+        k = SPECIAL_KEYS.get(key, f"[{key}]")  # Special keys
+
+    text_area.insert(tk.END, k + " ")
+    text_area.see(tk.END)  # Auto-scroll
+
+# Start key listener in the background
+listener = keyboard.Listener(on_press=on_press)
+listener.start()
+
+# Properly stop listener when window closes
+def on_close():
+    listener.stop()
+    root.destroy()
+
+root.protocol("WM_DELETE_WINDOW", on_close)
+
+# Run the GUI
+root.mainloop()
